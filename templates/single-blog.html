@@ -130,43 +130,41 @@
                                 </div>                                
                                 <!-- / END BLOG POST DESIGN AREA -->
                                 <!-- blog_detail.html -->
-<div class="post-comments-area">
-    <h2>Comments</h2>
-    {% for comment in blog.comments.all %}
-    <div class="single-comment">
-        <img src="{% static 'assets/images/blog/author.jpg' %}" alt="" />
-        <h5>{{ comment.name }} - {{ comment.created_at|date:"M, Y" }}</h5>
-        <p>{{ comment.comment }}</p>
-        <a href="#"><i class="ri-reply-line"></i> Reply</a>
-    </div>
-    {% empty %}
-    <p>No comments yet.</p>
-    {% endfor %}
-    
-    <!-- Comment form area -->
-    <div class="comment-form-area">
-        <div class="row">
-            <form method="post" action="{% url 'detailsblog-page' pk=blog.pk %}">
-                {% csrf_token %}
-                <div class="form-group col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="* Name" required="required">
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="email" name="email" class="form-control" placeholder="* Email" required="required">
-                </div>
-                <div class="form-group col-md-12">
-                    <textarea rows="6" name="comment" class="form-control" placeholder="* Comment" required="required"></textarea>
-                </div>
-                <input type="hidden" name="blog.id" value="{{ blog.pk }}">
-                <div class="col-md-12">
-                    <button type="submit">Submit Comment</button>
-                </div>
-            </form>            
-        </div>
-    </div>
-</div>
-
-
+                            <div class="post-comments-area">
+                                <h2>Comments</h2>
+                                {% for comment in blog.comments.all %}
+                                <div class="single-comment">
+                                    <img src="{% static 'assets/images/blog/author.jpg' %}" alt="" />
+                                    <h5>{{ comment.name }} - {{ comment.created_at|date:"M, Y" }}</h5>
+                                    <p>{{ comment.comment }}</p>
+                                    <a href="#"><i class="ri-reply-line"></i> Reply</a>
+                                </div>
+                                {% empty %}
+                                <p>No comments yet.</p>
+                                {% endfor %}
+                                
+                                <!-- Comment form area -->
+                                <div class="comment-form-area">
+                                    <div class="row">
+                                        <form method="post" action="{% url 'detailsblog-page' pk=blog.pk %}">
+                                            {% csrf_token %}
+                                            <div class="form-group col-md-6" style="width: 100%;">
+                                                <input type="text" name="name" class="form-control" placeholder="* Name" required="required">
+                                            </div>
+                                            <div class="form-group col-md-6" style="width: 100%;">
+                                                <input type="email" name="email" class="form-control" placeholder="* Email" required="required">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <textarea rows="6" name="comment" class="form-control" placeholder="* Comment" required="required"></textarea>
+                                            </div>
+                                            <input type="hidden" name="blog.id" value="{{ blog.pk }}">
+                                            <div class="col-md-12">
+                                                <button type="submit">Submit Comment</button>
+                                            </div>
+                                        </form>            
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                             <!-- START BLOG SIDEBAR DESIGN AREA -->
                             <div class="col-lg-4">

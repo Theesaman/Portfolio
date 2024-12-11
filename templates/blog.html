@@ -106,27 +106,27 @@
                             <div class="blog-list">
                                 <div class="col-lg-12">
                                     <!-- START SINGLE VLOG DESIGN AREA -->
-                                     {% for blog in blogs %}
-                                    <div class="row blog-post-box align-items-center">
-                                        <div class="col-lg-6">
-                                            <div class="blog-post-img">
-                                                <a href="single-">
-                                                    <img src="{{blog.image.url}}" alt="">
-                                                </a>
-                                                <div class="blog-post-category">
-                                                    <a href="#">{{blog.category}}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="blog-post-caption">
-                                                <h3>{{blog.create_date}}</h3>
-                                                <h2>{% for blog in blogs %}<a class="link-decoration" href="{% url 'detailsblog-page' blog.pk %}">{{ blog.title }}</a>{% endfor %}</h2>
-                                                <a class="theme-btn" href="{% url 'detailsblog-page'  blog.pk %}">Read more <i class="ri-arrow-right-line"></i></a>
-                                            </div>
+                                    {% for blog in blogs %}
+                                <div class="row blog-post-box align-items-center">
+                                    <div class="col-lg-6">
+                                        <div class="blog-post-img">
+                                            <a href="{% url 'detailsblog-page' blog.pk %}">
+                                                <img src="{{ blog.image.url }}" alt="">
+                                            </a>
+                                            <div class="blog-post-category">{{ blog.category }}</div>
                                         </div>
                                     </div>
-                                    {% endfor %}
+                                    <div class="col-lg-6">
+                                        <div class="blog-post-caption">
+                                            <h3>{{ blog.create_date }}</h3>
+                                            <h2>
+                                                <a class="link-decoration" href="{% url 'detailsblog-page' blog.pk %}">{{ blog.title }}</a>
+                                            </h2>
+                                            <a class="theme-btn" href="{% url 'detailsblog-page' blog.pk %}">Read more <i class="ri-arrow-right-line"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
                                     <!-- START SINGLE VLOG DESIGN AREA -->
                                 </div>
                             </div>
